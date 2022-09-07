@@ -11,8 +11,9 @@ class TorRequest(object):
   def __init__(self, 
       proxy_port=9050, 
       ctrl_port=9051,
+      host="localhost",
       password=None):
-
+    self.host = host
     self.proxy_port = proxy_port
     self.ctrl_port = ctrl_port
     
@@ -25,8 +26,8 @@ class TorRequest(object):
 
     self.session = requests.Session()
     self.session.proxies.update({
-      'http': 'socks5://localhost:%d' % self.proxy_port,
-      'https': 'socks5://localhost:%d' % self.proxy_port,
+      'http': 'socks5://%s:%d' % (self.host, self.proxy_port),
+      'https': 'socks5://%:%d' % (self.host, self.proxy_port),
     })
 
   def _tor_process_exists(self):
