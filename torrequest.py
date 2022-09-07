@@ -18,11 +18,11 @@ class TorRequest(object):
     self.ctrl_port = ctrl_port
     
     self._tor_proc = None
-    if not self._tor_process_exists():
-      self._tor_proc = self._launch_tor()
+    #if not self._tor_process_exists():
+    #  self._tor_proc = self._launch_tor()
 
-    self.ctrl = Controller.from_port(port=self.ctrl_port)
-    self.ctrl.authenticate(password=password)
+    #self.ctrl = Controller.from_port(port=self.ctrl_port)
+    #self.ctrl.authenticate(password=password)
 
     self.session = requests.Session()
     self.session.proxies.update({
