@@ -21,8 +21,8 @@ class TorRequest(object):
     #if not self._tor_process_exists():
     #  self._tor_proc = self._launch_tor()
 
-    self.ctrl = Controller.from_port(port=self.ctrl_port)
-    self.ctrl.authenticate(password=password)
+  #  self.ctrl = Controller.from_port(port=self.ctrl_port)
+  #  self.ctrl.authenticate(password=password)
 
     self.session = requests.Session()
     self.session.proxies.update({
@@ -62,7 +62,7 @@ class TorRequest(object):
     self.ctrl.signal(stem.Signal.NEWNYM)
 
   def reset_identity(self):
-    self.reset_identity_async()
+    #self.reset_identity_async()
     time.sleep(self.ctrl.get_newnym_wait())
 
   def get(self, *args, **kwargs):
