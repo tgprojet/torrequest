@@ -63,7 +63,8 @@ class TorRequest(object):
 
   def reset_identity(self):
     #self.reset_identity_async()
-    time.sleep(self.ctrl.get_newnym_wait())
+    #time.sleep(self.ctrl.get_newnym_wait())
+    pass
 
   def get(self, *args, **kwargs):
     return self.session.get(*args, **kwargs)
